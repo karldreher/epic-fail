@@ -8,3 +8,12 @@ This application is *designed to fail*.  It is a FastAPI web service, and featur
 
 # Why would anyone do this? 
 ![Chaos.](https://media1.tenor.com/m/VlJ2MvxQbL0AAAAd/the-dark-knight-heath-ledger.gif)
+
+# Getting Started
+```
+pip install -r requirements.txt
+fastapi run main.py
+```
+
+# API Docs (Swagger)
+As a first-class FastAPI application, docs are available on the `/docs` endpoint.
