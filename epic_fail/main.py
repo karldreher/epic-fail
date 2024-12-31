@@ -1,7 +1,7 @@
 from typing import Union
 import os
 from fastapi import FastAPI
-from pydantic_models import Exit, Fibonacci
+from epic_fail.pydantic_models import Exit, Fibonacci
 
 app = FastAPI()
 

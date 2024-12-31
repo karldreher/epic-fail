@@ -5,4 +5,4 @@ RUN pip install -r requirements.txt
 COPY . .
 # TODO: Non-urgently, switch to waitress or similar
 # TODO: fix user
-CMD ["fastapi", "run", "main.py"]
+CMD ["fastapi", "run", "epic_fail/main.py"]
