@@ -1,0 +1,8 @@
+services:
+  epic-fail:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: always
+    mem_reservation: 2G
+    mem_limit: 2G
