@@ -11,8 +11,7 @@ This application is *designed to fail*.  It is a FastAPI web service, and featur
 
 # Getting Started
 ```
-pip install -r requirements.txt
-fastapi run main.py
+uv run fastapi run epic_fail/main.py
 ```
 
 # API Docs (Swagger)
