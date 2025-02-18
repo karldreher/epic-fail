@@ -1,4 +1,3 @@
-from typing import Union
 import os
 from fastapi import FastAPI
 from epic_fail.pydantic_models import Exit, Fibonacci
