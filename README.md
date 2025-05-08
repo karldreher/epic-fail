@@ -16,3 +16,7 @@ uv run fastapi run epic_fail/main.py
 
 # API Docs (Swagger)
 As a first-class FastAPI application, docs are available on the `/docs` endpoint.
+
+
+# Testing
+Use the `httpie-collection-epic-fail.json` in the root of this repo with httpie.  
