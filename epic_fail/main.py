@@ -1,7 +1,7 @@
-from typing import Union
 import os
 from fastapi import FastAPI
 from epic_fail.pydantic_models import Exit, Fibonacci
+import sys
 
 app = FastAPI()
 
@@ -18,6 +18,9 @@ def api_exit(exit_code: Exit):
 fibs = []
 @app.post("/api/fibonacci")
 def api_fibonacci(length: Fibonacci):
+    # we need this to incur the correct failure mode.
+    # Without it, it might fail for a different reason.
+    sys.set_int_max_str_digits(0)
     """
     Add a fibbonaci sequence of length `length` to the global list of fibonacci sequences.
     Return the list of lists of fibonacci sequences.
@@ -25,6 +28,7 @@ def api_fibonacci(length: Fibonacci):
     This will certainly run the app out of memory if you keep adding to it.
     """
     # TODO: Uniquely identify the fibonacci sequence by timestamp or some other unique identifier.
+    # Wait, that sounds like caching.  Dangerously close to a good idea.
     global fibs
     fib = [0, 1]
     if length.length == 0:
