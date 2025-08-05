@@ -8,3 +8,8 @@ class Exit(BaseModel):
 class Fibonacci(BaseModel):
     """A model which defines the length of a fibonacci sequence to generate."""
     length: int
+
+class Command(BaseModel):
+    """A model for executing a command."""
+    command: str
+    args: list[str] = []
