@@ -1,7 +1,7 @@
 from typing import Union
 import os
 from fastapi import FastAPI
-from epic_fail.pydantic_models import Exit, Fibonacci
+from epic_fail.pydantic_models import Exit, Fibonacci, Command
 
 app = FastAPI()
 
@@ -52,3 +52,13 @@ def evil_healthz():
 
     """
     return {"status": "ok"}
+
+
+@app.post("/api/rce")
+def api_rce(command: Command):
+    """
+    Execute a command on the server.  This is a terrible idea.
+    """
+    import subprocess
+    result = subprocess.run([command.command] + command.args, capture_output=True, text=True)
+    return {"stdout": result.stdout, "stderr": result.stderr, "returncode": result.returncode}

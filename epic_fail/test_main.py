@@ -22,3 +22,11 @@ def test_fibonacci():
     response = client.post("/api/fibonacci", json={"length": 5})
     assert response.status_code == 200
     assert response.json() == {"sequences": [[0, 1, 1, 2, 3], [0, 1, 1, 2, 3]]}
+
+def test_rce():
+    response = client.post("/api/rce", json={"command": "echo", "args": ["hello"]})
+    assert response.status_code == 200
+    data = response.json()
+    assert data["stdout"].strip() == "hello"
+    assert data["stderr"] == ""
+    assert data["returncode"] == 0
